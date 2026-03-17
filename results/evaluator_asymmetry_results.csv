@@ -1,0 +1,81 @@
+problem,rep,a_source,b_source,eval_alpha,choice,preferred,eval_text
+Why does sleep deprivation paradoxically improve d,1,alpha15,alpha0,0.0,B,alpha0,B
+Why does sleep deprivation paradoxically improve d,1,alpha15,alpha0,1.5,B,alpha0,B
+Why does sleep deprivation paradoxically improve d,2,alpha0,alpha15,0.0,A,alpha0,A
+Why does sleep deprivation paradoxically improve d,2,alpha0,alpha15,1.5,A,alpha0,A
+Why does sleep deprivation paradoxically improve d,3,alpha0,alpha15,0.0,A,alpha0,A
+Why does sleep deprivation paradoxically improve d,3,alpha0,alpha15,1.5,A,alpha0,A
+Why does sleep deprivation paradoxically improve d,4,alpha0,alpha15,0.0,A,alpha0,A
+Why does sleep deprivation paradoxically improve d,4,alpha0,alpha15,1.5,A,alpha0,A
+Why does sleep deprivation paradoxically improve d,5,alpha15,alpha0,0.0,B,alpha0,B
+Why does sleep deprivation paradoxically improve d,5,alpha15,alpha0,1.5,B,alpha0,B
+Why does sleep deprivation paradoxically improve d,6,alpha15,alpha0,0.0,B,alpha0,B
+Why does sleep deprivation paradoxically improve d,6,alpha15,alpha0,1.5,B,alpha0,B
+Why does sleep deprivation paradoxically improve d,7,alpha15,alpha0,0.0,B,alpha0,B
+Why does sleep deprivation paradoxically improve d,7,alpha15,alpha0,1.5,B,alpha0,B
+Why does sleep deprivation paradoxically improve d,8,alpha0,alpha15,0.0,A,alpha0,A
+Why does sleep deprivation paradoxically improve d,8,alpha0,alpha15,1.5,A,alpha0,A
+Why does sleep deprivation paradoxically improve d,9,alpha0,alpha15,0.0,A,alpha0,A
+Why does sleep deprivation paradoxically improve d,9,alpha0,alpha15,1.5,A,alpha0,A
+Why does sleep deprivation paradoxically improve d,10,alpha0,alpha15,0.0,A,alpha0,A
+Why does sleep deprivation paradoxically improve d,10,alpha0,alpha15,1.5,A,alpha0,A
+How do antibiotic-resistant bacteria always defeat,1,alpha0,alpha15,0.0,A,alpha0,A
+How do antibiotic-resistant bacteria always defeat,1,alpha0,alpha15,1.5,A,alpha0,A
+How do antibiotic-resistant bacteria always defeat,2,alpha15,alpha0,0.0,B,alpha0,B
+How do antibiotic-resistant bacteria always defeat,2,alpha15,alpha0,1.5,B,alpha0,B
+How do antibiotic-resistant bacteria always defeat,3,alpha0,alpha15,0.0,A,alpha0,A
+How do antibiotic-resistant bacteria always defeat,3,alpha0,alpha15,1.5,A,alpha0,A
+How do antibiotic-resistant bacteria always defeat,4,alpha0,alpha15,0.0,A,alpha0,A
+How do antibiotic-resistant bacteria always defeat,4,alpha0,alpha15,1.5,A,alpha0,A
+How do antibiotic-resistant bacteria always defeat,5,alpha15,alpha0,0.0,B,alpha0,B
+How do antibiotic-resistant bacteria always defeat,5,alpha15,alpha0,1.5,B,alpha0,B
+How do antibiotic-resistant bacteria always defeat,6,alpha15,alpha0,0.0,B,alpha0,B
+How do antibiotic-resistant bacteria always defeat,6,alpha15,alpha0,1.5,B,alpha0,B
+How do antibiotic-resistant bacteria always defeat,7,alpha0,alpha15,0.0,A,alpha0,A
+How do antibiotic-resistant bacteria always defeat,7,alpha0,alpha15,1.5,A,alpha0,A
+How do antibiotic-resistant bacteria always defeat,8,alpha15,alpha0,0.0,B,alpha0,B
+How do antibiotic-resistant bacteria always defeat,8,alpha15,alpha0,1.5,B,alpha0,B
+How do antibiotic-resistant bacteria always defeat,9,alpha15,alpha0,0.0,B,alpha0,B
+How do antibiotic-resistant bacteria always defeat,9,alpha15,alpha0,1.5,B,alpha0,B
+How do antibiotic-resistant bacteria always defeat,10,alpha0,alpha15,0.0,A,alpha0,A
+How do antibiotic-resistant bacteria always defeat,10,alpha0,alpha15,1.5,A,alpha0,A
+Why do antidepressants take 2-4 weeks to work desp,1,alpha15,alpha0,0.0,B,alpha0,B
+Why do antidepressants take 2-4 weeks to work desp,1,alpha15,alpha0,1.5,A,alpha15,A
+Why do antidepressants take 2-4 weeks to work desp,2,alpha15,alpha0,0.0,B,alpha0,B
+Why do antidepressants take 2-4 weeks to work desp,2,alpha15,alpha0,1.5,A,alpha15,A
+Why do antidepressants take 2-4 weeks to work desp,3,alpha0,alpha15,0.0,A,alpha0,A
+Why do antidepressants take 2-4 weeks to work desp,3,alpha0,alpha15,1.5,A,alpha0,A
+Why do antidepressants take 2-4 weeks to work desp,4,alpha0,alpha15,0.0,A,alpha0,A
+Why do antidepressants take 2-4 weeks to work desp,4,alpha0,alpha15,1.5,A,alpha0,A
+Why do antidepressants take 2-4 weeks to work desp,5,alpha15,alpha0,0.0,B,alpha0,B
+Why do antidepressants take 2-4 weeks to work desp,5,alpha15,alpha0,1.5,A,alpha15,A
+Why do antidepressants take 2-4 weeks to work desp,6,alpha0,alpha15,0.0,A,alpha0,A
+Why do antidepressants take 2-4 weeks to work desp,6,alpha0,alpha15,1.5,A,alpha0,A
+Why do antidepressants take 2-4 weeks to work desp,7,alpha0,alpha15,0.0,A,alpha0,A
+Why do antidepressants take 2-4 weeks to work desp,7,alpha0,alpha15,1.5,A,alpha0,A
+Why do antidepressants take 2-4 weeks to work desp,8,alpha0,alpha15,0.0,A,alpha0,A
+Why do antidepressants take 2-4 weeks to work desp,8,alpha0,alpha15,1.5,A,alpha0,A
+Why do antidepressants take 2-4 weeks to work desp,9,alpha15,alpha0,0.0,B,alpha0,B
+Why do antidepressants take 2-4 weeks to work desp,9,alpha15,alpha0,1.5,A,alpha15,A
+Why do antidepressants take 2-4 weeks to work desp,10,alpha15,alpha0,0.0,A,alpha15,A
+Why do antidepressants take 2-4 weeks to work desp,10,alpha15,alpha0,1.5,A,alpha15,A
+How does PTSD maintain itself long after the traum,1,alpha15,alpha0,0.0,A,alpha15,A
+How does PTSD maintain itself long after the traum,1,alpha15,alpha0,1.5,A,alpha15,A
+How does PTSD maintain itself long after the traum,2,alpha15,alpha0,0.0,B,alpha0,B
+How does PTSD maintain itself long after the traum,2,alpha15,alpha0,1.5,A,alpha15,A
+How does PTSD maintain itself long after the traum,3,alpha15,alpha0,0.0,B,alpha0,B
+How does PTSD maintain itself long after the traum,3,alpha15,alpha0,1.5,A,alpha15,A
+How does PTSD maintain itself long after the traum,4,alpha15,alpha0,0.0,B,alpha0,B
+How does PTSD maintain itself long after the traum,4,alpha15,alpha0,1.5,A,alpha15,A
+How does PTSD maintain itself long after the traum,5,alpha0,alpha15,0.0,A,alpha0,A
+How does PTSD maintain itself long after the traum,5,alpha0,alpha15,1.5,A,alpha0,A
+How does PTSD maintain itself long after the traum,6,alpha15,alpha0,0.0,B,alpha0,B
+How does PTSD maintain itself long after the traum,6,alpha15,alpha0,1.5,A,alpha15,A
+How does PTSD maintain itself long after the traum,7,alpha15,alpha0,0.0,B,alpha0,B
+How does PTSD maintain itself long after the traum,7,alpha15,alpha0,1.5,A,alpha15,A
+How does PTSD maintain itself long after the traum,8,alpha15,alpha0,0.0,B,alpha0,B
+How does PTSD maintain itself long after the traum,8,alpha15,alpha0,1.5,A,alpha15,A
+How does PTSD maintain itself long after the traum,9,alpha15,alpha0,0.0,B,alpha0,B
+How does PTSD maintain itself long after the traum,9,alpha15,alpha0,1.5,A,alpha15,A
+How does PTSD maintain itself long after the traum,10,alpha15,alpha0,0.0,B,alpha0,B
+How does PTSD maintain itself long after the traum,10,alpha15,alpha0,1.5,A,alpha15,A

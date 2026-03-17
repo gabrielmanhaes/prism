@@ -2,7 +2,7 @@ from dataclasses import dataclass, field
 from typing import Optional, List
 
 from .providers.base import BaseLLMProvider, GenerationConfig
-from .evaluator.prompts import CREATIVE_SYSTEM, CONSERVATIVE_SYSTEM, DELTA_SYSTEM
+from .evaluator.prompts import CREATIVE_SYSTEM, FREE_CREATIVE_SYSTEM, CONSERVATIVE_SYSTEM, DELTA_SYSTEM
 from .pss import PSS, PSSResult
 
 
@@ -79,6 +79,23 @@ class PRISM:
         )
         return self.generator.generate(prompt, config).content
 
+    def _free_creative_pass(self, problem: str) -> str:
+        prompt = (
+            f"What hidden formal structure, mathematical framework, or "
+            f"organizing principle explains this problem:\n\n{problem}\n\n"
+            f"Look for deep structural patterns — equations, optimization "
+            f"objectives, constraint structures — that reveal something "
+            f"non-obvious. What does the structure tell you that standard "
+            f"analysis misses?"
+        )
+
+        config = GenerationConfig(
+            temperature=self.config.creative_temperature,
+            max_tokens=self.config.max_tokens,
+            system_prompt=FREE_CREATIVE_SYSTEM,
+        )
+        return self.generator.generate(prompt, config).content
+
     def _conservative_pass(self, problem: str, domain_a: str) -> str:
         prompt = f"What is the standard scientific understanding of: {problem}"
 
@@ -152,6 +169,68 @@ class PRISM:
                     pss=pss_result,
                     domain_a=domain_a,
                     domain_b=domain_b,
+                    problem=problem,
+                    attempts=attempt,
+                )
+
+            # Early stop if quality gate met
+            if pss_result.pss >= self.config.min_pss:
+                break
+
+        return best_result
+
+    def free_synthesis(
+        self,
+        problem: str,
+        domain: str,
+    ) -> PRISMResult:
+        """
+        Run contrastive synthesis without domain specification.
+
+        The creative pass asks for novel structural explanations generally,
+        without mentioning specific domains. The conservative pass and delta
+        extraction work as usual. PSS scoring uses the given domain as both
+        domain_a and domain_b.
+
+        Args:
+            problem: The scientific or technical problem to solve
+            domain: The domain the problem lives in (used for conservative
+                    pass and PSS scoring)
+
+        Returns:
+            PRISMResult with synthesis and PSS score
+        """
+        best_result = None
+
+        for attempt in range(1, self.config.max_attempts + 1):
+            if self.config.verbose:
+                print(f"Attempt {attempt}/{self.config.max_attempts}...")
+
+            # Three-stage contrastive mechanism (domain-free creative)
+            creative = self._free_creative_pass(problem)
+            conservative = self._conservative_pass(problem, domain)
+            synthesis = self._delta_extraction(creative, conservative)
+
+            # Score with PSS — use domain as both a and b
+            pss_result = self.pss_scorer.score(
+                response=synthesis,
+                domain_a=domain,
+                domain_b=domain,
+            )
+
+            if self.config.verbose:
+                print(
+                    f"  PSS={pss_result.pss:.4f} "
+                    f"(AD={pss_result.attractor_distance:.4f}, "
+                    f"coh={pss_result.coherence:.4f})"
+                )
+
+            if best_result is None or pss_result.pss > best_result.pss.pss:
+                best_result = PRISMResult(
+                    synthesis=synthesis,
+                    pss=pss_result,
+                    domain_a=domain,
+                    domain_b=domain,
                     problem=problem,
                     attempts=attempt,
                 )

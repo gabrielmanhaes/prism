@@ -41,8 +41,8 @@ def test_parse_coherence_standard():
     """Parse a well-formatted coherence response."""
     pss = PSS(generator=MagicMock(), evaluator=MagicMock())
 
-    response = "Q1: YES\nQ2: GENUINE_INSIGHT\nQ3: STRUCTURAL_REVELATION"
-    score, va, vb, pred = pss._parse_coherence(response)
+    response = "Q1: YES\nQ2: GENUINE_INSIGHT\nQ3: STRUCTURAL_REVELATION\nQ4: NO\nQ5: NOVEL"
+    score, va, vb, pred, has_tool, is_novel = pss._parse_coherence(response)
 
     assert va == "GENUINE_INSIGHT"
     assert vb == "STRUCTURAL_REVELATION"
@@ -54,8 +54,8 @@ def test_parse_coherence_no_prediction():
     """Parse response with no testable prediction."""
     pss = PSS(generator=MagicMock(), evaluator=MagicMock())
 
-    response = "Q1: NO\nQ2: SUPERFICIAL\nQ3: NOTHING_NEW"
-    score, va, vb, pred = pss._parse_coherence(response)
+    response = "Q1: NO\nQ2: SUPERFICIAL\nQ3: NOTHING_NEW\nQ4: NO\nQ5: NOVEL"
+    score, va, vb, pred, has_tool, is_novel = pss._parse_coherence(response)
 
     assert pred is False
     assert va == "SUPERFICIAL"

@@ -1,0 +1,121 @@
+condition,problem,domain_a,domain_b,rep,n_tokens,score
+A_baseline,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,1,400,3
+B_prompt_only,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,1,400,4
+C_contrastive,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,1,400,5
+A_baseline,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,2,400,3
+B_prompt_only,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,2,400,3
+C_contrastive,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,2,400,5
+A_baseline,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,3,378,1
+B_prompt_only,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,3,400,5
+C_contrastive,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,3,400,5
+A_baseline,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,4,391,2
+B_prompt_only,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,4,400,5
+C_contrastive,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,4,400,5
+A_baseline,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,5,400,1
+B_prompt_only,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,5,400,5
+C_contrastive,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,5,400,5
+A_baseline,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,6,400,1
+B_prompt_only,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,6,400,5
+C_contrastive,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,6,400,5
+A_baseline,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,7,336,2
+B_prompt_only,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,7,400,4
+C_contrastive,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,7,400,5
+A_baseline,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,8,400,1
+B_prompt_only,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,8,400,4
+C_contrastive,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,8,400,4
+A_baseline,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,9,367,3
+B_prompt_only,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,9,400,4
+C_contrastive,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,9,400,5
+A_baseline,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,10,354,2
+B_prompt_only,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,10,400,4
+C_contrastive,Why does sleep deprivation paradoxically improve d,neuroscience,information theory,10,400,4
+A_baseline,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,1,400,4
+B_prompt_only,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,1,400,5
+C_contrastive,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,1,400,4
+A_baseline,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,2,366,5
+B_prompt_only,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,2,400,5
+C_contrastive,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,2,400,4
+A_baseline,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,3,400,4
+B_prompt_only,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,3,400,4
+C_contrastive,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,3,400,4
+A_baseline,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,4,400,4
+B_prompt_only,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,4,400,4
+C_contrastive,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,4,400,5
+A_baseline,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,5,400,5
+B_prompt_only,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,5,400,4
+C_contrastive,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,5,400,4
+A_baseline,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,6,400,4
+B_prompt_only,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,6,400,5
+C_contrastive,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,6,400,4
+A_baseline,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,7,400,5
+B_prompt_only,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,7,400,5
+C_contrastive,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,7,400,4
+A_baseline,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,8,382,5
+B_prompt_only,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,8,400,5
+C_contrastive,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,8,400,5
+A_baseline,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,9,400,5
+B_prompt_only,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,9,400,5
+C_contrastive,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,9,400,5
+A_baseline,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,10,400,1
+B_prompt_only,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,10,400,5
+C_contrastive,How do antibiotic-resistant bacteria always defeat,microbiology,cybernetics,10,400,5
+A_baseline,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,1,400,5
+B_prompt_only,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,1,400,5
+C_contrastive,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,1,400,5
+A_baseline,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,2,400,5
+B_prompt_only,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,2,400,5
+C_contrastive,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,2,400,5
+A_baseline,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,3,400,5
+B_prompt_only,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,3,400,4
+C_contrastive,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,3,400,4
+A_baseline,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,4,400,5
+B_prompt_only,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,4,400,4
+C_contrastive,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,4,400,5
+A_baseline,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,5,400,5
+B_prompt_only,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,5,400,5
+C_contrastive,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,5,400,5
+A_baseline,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,6,400,5
+B_prompt_only,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,6,400,4
+C_contrastive,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,6,400,5
+A_baseline,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,7,400,4
+B_prompt_only,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,7,400,4
+C_contrastive,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,7,400,4
+A_baseline,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,8,400,5
+B_prompt_only,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,8,400,4
+C_contrastive,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,8,400,4
+A_baseline,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,9,400,4
+B_prompt_only,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,9,400,4
+C_contrastive,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,9,400,5
+A_baseline,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,10,400,4
+B_prompt_only,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,10,400,4
+C_contrastive,Why do antidepressants take 2-4 weeks to work desp,psychiatry,network science,10,400,5
+A_baseline,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,1,400,5
+B_prompt_only,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,1,400,5
+C_contrastive,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,1,400,5
+A_baseline,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,2,400,5
+B_prompt_only,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,2,400,5
+C_contrastive,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,2,400,5
+A_baseline,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,3,400,3
+B_prompt_only,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,3,400,4
+C_contrastive,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,3,400,5
+A_baseline,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,4,400,5
+B_prompt_only,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,4,400,4
+C_contrastive,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,4,400,4
+A_baseline,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,5,400,5
+B_prompt_only,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,5,400,4
+C_contrastive,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,5,400,5
+A_baseline,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,6,400,5
+B_prompt_only,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,6,400,5
+C_contrastive,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,6,400,4
+A_baseline,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,7,400,4
+B_prompt_only,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,7,400,4
+C_contrastive,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,7,400,5
+A_baseline,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,8,400,5
+B_prompt_only,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,8,400,5
+C_contrastive,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,8,400,5
+A_baseline,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,9,400,5
+B_prompt_only,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,9,400,5
+C_contrastive,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,9,400,5
+A_baseline,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,10,400,4
+B_prompt_only,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,10,400,4
+C_contrastive,Why does ketamine produce rapid antidepressant eff,psychiatry,statistical mechanics,10,400,5

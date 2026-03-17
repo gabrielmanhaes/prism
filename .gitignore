@@ -10,3 +10,6 @@ build/
 *.png
 .pytest_cache/
 .mypy_cache/
+
+# Large experiment output files (results/ CSVs are tracked)
+*_outputs.json

@@ -5,10 +5,10 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "prism-synthesis"
 version = "0.1.0"
-description = "Cross-domain structural synthesis engine using contrastive precision reduction"
+description = "Token-level contrastive generation for cognitive state modulation in language models"
 readme = "README.md"
 license = {text = "MIT"}
-keywords = ["creativity", "cross-domain", "synthesis", "LLM", "science", "PSS"]
+keywords = ["contrastive-decoding", "cognitive-state", "synthesis", "LLM", "PSS"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
@@ -27,10 +27,20 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+local = [
+    "torch>=2.0.0",
+    "transformers>=4.35.0",
+]
 anthropic = ["anthropic>=0.20"]
 openai = ["openai>=1.0"]
-ollama = ["ollama>=0.1"]
-all = ["anthropic>=0.20", "openai>=1.0", "ollama>=0.1"]
+all = [
+    "torch>=2.0.0",
+    "transformers>=4.35.0",
+    "anthropic>=0.20",
+    "openai>=1.0",
+    "scipy>=1.10.0",
+    "pandas>=2.0.0",
+]
 dev = ["pytest>=7.0", "black", "ruff", "mypy"]
 
 [project.urls]

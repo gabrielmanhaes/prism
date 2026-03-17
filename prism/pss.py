@@ -17,6 +17,11 @@ class PSSResult:
     domain_b_verdict: str
     has_testable_prediction: bool
     response: str
+    # v0.2 fields
+    raw_attractor_distance: float = 0.0
+    domain_pair_distance: float = 0.0
+    has_formal_tool_transfer: bool = False
+    is_novel_bridge: bool = False
 
 
 VERDICT_SCORES = {
@@ -27,6 +32,9 @@ VERDICT_SCORES = {
     "SUPERFICIAL": 0.2,
     "NOTHING_NEW": 0.1,
 }
+
+TOOL_TRANSFER_BOOST = 1.25
+ESTABLISHED_PENALTY = 0.5
 
 
 # Meta-commentary patterns that inflate distance without adding content
@@ -50,8 +58,10 @@ class PSS:
 
     PSS = Attractor Distance x Structural Coherence
 
-    Attractor Distance: how far the response departs from conventional responses
-    Structural Coherence: whether the departure reveals genuine structure in both domains
+    Attractor Distance: how far the response departs from conventional responses,
+        normalized by the semantic distance between the two domains.
+    Structural Coherence: whether the departure reveals genuine structure in both
+        domains, with tiebreakers for formal tool transfer and literature novelty.
     """
 
     def __init__(
@@ -61,6 +71,7 @@ class PSS:
         n_baseline: int = 8,
         baseline_temperature: float = 0.3,
         embedding_model: str = "all-MiniLM-L6-v2",
+        n_coherence_evals: int = 2,
     ):
         self.generator = generator
         self.evaluator = evaluator
@@ -68,6 +79,7 @@ class PSS:
         self.baseline_temperature = baseline_temperature
         self._embedder = None
         self._embedding_model = embedding_model
+        self.n_coherence_evals = n_coherence_evals
 
     def _get_embedder(self):
         if self._embedder is None:
@@ -150,12 +162,24 @@ class PSS:
         )
         return float(np.clip((1 - cos_sim) / 2.0, 0, 1))
 
+    def _domain_pair_distance(self, domain_a: str, domain_b: str) -> float:
+        """Compute semantic distance between two domain names."""
+        if domain_a.lower() == domain_b.lower():
+            return 0.0
+        embedder = self._get_embedder()
+        embeddings = embedder.encode([domain_a, domain_b])
+        cos_sim = np.dot(embeddings[0], embeddings[1]) / (
+            np.linalg.norm(embeddings[0]) * np.linalg.norm(embeddings[1]) + 1e-8
+        )
+        return float(np.clip((1 - cos_sim) / 2.0, 0, 1))
+
     def _structural_coherence(
         self, response: str, domain_a: str, domain_b: str
     ) -> tuple:
         """
-        Evaluate structural coherence using three-question categorical protocol.
-        Returns (coherence_score, verdict_a, verdict_b, has_prediction)
+        Evaluate structural coherence using five-question categorical protocol.
+        Returns (coherence_score, verdict_a, verdict_b, has_prediction,
+                 has_tool_transfer, is_novel_bridge)
         """
         cleaned = self._strip_meta(response)
 
@@ -164,7 +188,7 @@ class PSS:
 CONNECTION:
 {cleaned}
 
-Answer these three questions:
+Answer these five questions:
 
 Q1: Does this connection generate a non-obvious testable prediction?
 Answer: YES or NO
@@ -175,10 +199,18 @@ Choose exactly one: STRUCTURAL_ISOMORPHISM | STRUCTURAL_REVELATION | GENUINE_INS
 Q3: Would an expert in {domain_b} learn something genuinely new about {domain_b} from this connection?
 Choose exactly one: STRUCTURAL_ISOMORPHISM | STRUCTURAL_REVELATION | GENUINE_INSIGHT | INTERESTING_FRAMING | SUPERFICIAL | NOTHING_NEW
 
+Q4: Does this connection transfer a specific formal tool (equation, algorithm, measurement protocol, or theorem) from {domain_b} that can be directly applied in {domain_a}?
+Answer: YES or NO
+
+Q5: Is this connection already well-established in the literature connecting these two fields, or does it represent a genuinely novel bridge?
+Answer: ESTABLISHED or NOVEL
+
 Format your response as:
 Q1: [YES/NO]
 Q2: [VERDICT]
-Q3: [VERDICT]"""
+Q3: [VERDICT]
+Q4: [YES/NO]
+Q5: [ESTABLISHED/NOVEL]"""
 
         config = GenerationConfig(temperature=0.1, max_tokens=200)
 
@@ -186,15 +218,17 @@ Q3: [VERDICT]"""
             result = self.evaluator.generate(eval_prompt, config)
             return self._parse_coherence(result.content)
         except Exception:
-            return 0.02, "SUPERFICIAL", "SUPERFICIAL", False
+            return 0.02, "SUPERFICIAL", "SUPERFICIAL", False, False, True
 
     def _parse_coherence(self, response: str) -> tuple:
-        """Parse coherence evaluation response."""
+        """Parse coherence evaluation response into score and components."""
         lines = response.strip().split("\n")
 
         has_prediction = False
         verdict_a = "SUPERFICIAL"
         verdict_b = "SUPERFICIAL"
+        has_tool_transfer = False
+        is_novel_bridge = True  # default to novel (no penalty) if unparseable
 
         for line in lines:
             line = line.strip()
@@ -210,18 +244,47 @@ Q3: [VERDICT]"""
                     if v in line:
                         verdict_b = v
                         break
+            elif line.startswith("Q4:"):
+                has_tool_transfer = "YES" in line.upper()
+            elif line.startswith("Q5:"):
+                is_novel_bridge = "NOVEL" in line.upper() and "ESTABLISHED" not in line.upper()
 
         score = VERDICT_SCORES[verdict_a] * VERDICT_SCORES[verdict_b]
-        return score, verdict_a, verdict_b, has_prediction
+        if has_tool_transfer:
+            score *= TOOL_TRANSFER_BOOST
+        if not is_novel_bridge:
+            score *= ESTABLISHED_PENALTY
+        score = float(np.clip(score, 0, 1))
+
+        return score, verdict_a, verdict_b, has_prediction, has_tool_transfer, is_novel_bridge
 
     def score(
         self, response: str, domain_a: str, domain_b: str
     ) -> PSSResult:
         """Compute PSS for a single response."""
-        ad = self._attractor_distance(response, domain_a, domain_b)
-        coherence, verdict_a, verdict_b, has_prediction = (
-            self._structural_coherence(response, domain_a, domain_b)
-        )
+        # Attractor distance
+        raw_ad = self._attractor_distance(response, domain_a, domain_b)
+
+        # Normalize AD by domain pair distance (#6)
+        dpd = self._domain_pair_distance(domain_a, domain_b)
+        if dpd > 0.01:
+            ad = float(np.clip(raw_ad / dpd, 0, 1))
+        else:
+            ad = raw_ad
+
+        # Structural coherence — run N times and average (#2)
+        runs = []
+        for _ in range(self.n_coherence_evals):
+            runs.append(self._structural_coherence(response, domain_a, domain_b))
+
+        coherence = float(np.mean([r[0] for r in runs]))
+        best_run = max(runs, key=lambda r: r[0])
+        verdict_a = best_run[1]
+        verdict_b = best_run[2]
+        has_prediction = any(r[3] for r in runs)
+        has_tool_transfer = any(r[4] for r in runs)
+        is_novel_bridge = any(r[5] for r in runs)
+
         pss = ad * coherence
 
         return PSSResult(
@@ -233,4 +296,8 @@ Q3: [VERDICT]"""
             domain_b_verdict=verdict_b,
             has_testable_prediction=has_prediction,
             response=response,
+            raw_attractor_distance=raw_ad,
+            domain_pair_distance=dpd,
+            has_formal_tool_transfer=has_tool_transfer,
+            is_novel_bridge=is_novel_bridge,
         )

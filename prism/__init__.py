@@ -1,29 +1,53 @@
 """
 PRISM — Precision Reduction for Isomorphic Synthesis and Mapping
 
-Find structural equivalences between distant scientific domains.
+Token-level contrastive generation that modulates the cognitive state
+of language models — not just what they generate, but how they evaluate.
 
-Quick start:
+Quick start (token-level, local GPU):
+    from prism import TokenLevelPRISM, PRISMConfig, get_mode
+
+    prism = TokenLevelPRISM.from_pretrained(
+        "mistralai/Mistral-7B-Instruct-v0.3",
+        config=PRISMConfig(alpha=1.5),
+    )
+    mode = get_mode("synthesis")
+    output = prism.generate(
+        problem="Why does sleep deprivation paradoxically improve depression?",
+        creative_system=mode.creative_system,
+        conservative_system=mode.conservative_system,
+    )
+    print(output.text)
+
+Quick start (response-level, API):
     from prism import PRISM
 
-    # Auto-detect available provider
     engine = PRISM.from_env()
-
     result = engine.synthesize(
         problem="Why does sleep deprivation paradoxically improve depression?",
         domain_a="neuroscience",
-        domain_b="information theory"
+        domain_b="information theory",
     )
     print(result.synthesis)
-    print(f"PSS: {result.pss.pss:.4f}")
 """
 
-from .engine import PRISM, PRISMConfig, PRISMResult
+# Response-level API engine
+from .engine import PRISM, PRISMConfig as ResponseLevelConfig, PRISMResult
 from .pss import PSS, PSSResult
+
+# Providers
 from .providers.base import BaseLLMProvider, GenerationConfig, GenerationResult
 from .providers.anthropic import AnthropicProvider
 from .providers.openai import OpenAIProvider
 from .providers.ollama import OllamaProvider
+
+# Core: token-level engine and cognitive modes
+from .core.token_level import (
+    TokenLevelPRISM,
+    PRISMConfig,
+    TokenLevelResult,
+)
+from .core.modes import CognitiveMode, MODES, get_mode, list_modes
 
 
 def _auto_provider() -> BaseLLMProvider:
@@ -55,11 +79,23 @@ PRISM.from_env = _from_env  # type: ignore[attr-defined]
 
 __version__ = "0.1.0"
 __all__ = [
-    "PRISM",
+    # Token-level (primary)
+    "TokenLevelPRISM",
     "PRISMConfig",
+    "TokenLevelResult",
+    # Cognitive modes
+    "CognitiveMode",
+    "MODES",
+    "get_mode",
+    "list_modes",
+    # Response-level API engine
+    "PRISM",
+    "ResponseLevelConfig",
     "PRISMResult",
+    # Evaluation
     "PSS",
     "PSSResult",
+    # Providers
     "BaseLLMProvider",
     "GenerationConfig",
     "GenerationResult",

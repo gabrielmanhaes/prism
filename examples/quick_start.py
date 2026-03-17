@@ -1,34 +1,35 @@
 """
-PRISM Quick Start
-================
-Find structural equivalences between scientific domains.
+PRISM Quick Start — Scientific Synthesis
+
+Finds cross-domain structural connections using token-level
+contrastive generation.
+
+Requirements:
+    pip install prism-synthesis
+    A local instruction-tuned model via HuggingFace
+    Tested: Mistral-7B-Instruct, Qwen2.5-3B-Instruct
 """
 
-from prism import PRISM, PRISMConfig
+from prism import TokenLevelPRISM, PRISMConfig, get_mode
 
+# Load model (use your local model path or HuggingFace name)
+prism = TokenLevelPRISM.from_pretrained(
+    "Qwen/Qwen2.5-3B-Instruct",
+    config=PRISMConfig(alpha=1.5),
+)
 
-def main():
-    # Auto-detect provider from environment
-    # Needs ANTHROPIC_API_KEY or OPENAI_API_KEY in environment
-    engine = PRISM.from_env(config=PRISMConfig(verbose=True, max_attempts=3))
+# Get the synthesis cognitive mode
+mode = get_mode("synthesis")
 
-    # Single domain pair synthesis
-    print("=" * 60)
-    print("PRISM — Single Domain Synthesis")
-    print("=" * 60)
+# Generate
+problem = "Why does sleep deprivation paradoxically improve depression?"
+result = prism.generate(
+    problem=problem,
+    creative_system=mode.creative_system,
+    conservative_system=mode.conservative_system,
+    alpha=mode.optimal_alpha,
+)
 
-    result = engine.synthesize(
-        problem="Why does sleep deprivation paradoxically improve depression?",
-        domain_a="neuroscience",
-        domain_b="information theory",
-    )
-
-    print(f"\nPSS: {result.pss.pss:.4f}")
-    print(f"Attractor Distance: {result.pss.attractor_distance:.4f}")
-    print(f"Coherence: {result.pss.coherence:.4f} ({result.pss.coherence_verdict})")
-    print(f"Testable prediction: {result.pss.has_testable_prediction}")
-    print(f"\nSynthesis:\n{result.synthesis}")
-
-
-if __name__ == "__main__":
-    main()
+print(f"Alpha: {result.alpha}")
+print(f"Tokens: {result.n_tokens} ({result.tokens_per_sec:.0f} tok/s)")
+print(f"\n{result.text}")

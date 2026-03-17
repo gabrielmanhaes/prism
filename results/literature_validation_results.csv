@@ -1,0 +1,121 @@
+condition,problem_id,question,rep,score,n_found,n_tokens
+A_generic,1,Why does lithium stabilize bipolar disorder?,1,1,1,378
+A_generic,1,Why does lithium stabilize bipolar disorder?,2,0,0,354
+A_generic,1,Why does lithium stabilize bipolar disorder?,3,0,0,410
+A_generic,2,Why does aspirin prevent heart attacks beyond blood thinning,1,0,0,500
+A_generic,2,Why does aspirin prevent heart attacks beyond blood thinning,2,0,0,500
+A_generic,2,Why does aspirin prevent heart attacks beyond blood thinning,3,0,0,500
+A_generic,3,Why do some cancers respond to immunotherapy while genetical,1,0,0,500
+A_generic,3,Why do some cancers respond to immunotherapy while genetical,2,1,1,500
+A_generic,3,Why do some cancers respond to immunotherapy while genetical,3,2,2,500
+A_generic,4,Why does exercise improve depression comparably to antidepre,1,1,1,500
+A_generic,4,Why does exercise improve depression comparably to antidepre,2,0,0,444
+A_generic,4,Why does exercise improve depression comparably to antidepre,3,2,2,500
+A_generic,5,Why does fasting produce mental clarity?,1,1,1,416
+A_generic,5,Why does fasting produce mental clarity?,2,0,0,382
+A_generic,5,Why does fasting produce mental clarity?,3,1,1,499
+A_generic,6,Why do some people never develop Alzheimer's despite having ,1,2,2,500
+A_generic,6,Why do some people never develop Alzheimer's despite having ,2,2,2,500
+A_generic,6,Why do some people never develop Alzheimer's despite having ,3,1,1,500
+A_generic,7,Why does placebo work better for pain than for cancer?,1,0,0,500
+A_generic,7,Why does placebo work better for pain than for cancer?,2,0,0,500
+A_generic,7,Why does placebo work better for pain than for cancer?,3,0,0,500
+A_generic,8,Why do psychedelics produce lasting personality change from ,1,0,0,401
+A_generic,8,Why do psychedelics produce lasting personality change from ,2,0,0,500
+A_generic,8,Why do psychedelics produce lasting personality change from ,3,0,0,442
+A_generic,9,Why does sleep deprivation acutely improve depression but ch,1,0,0,500
+A_generic,9,Why does sleep deprivation acutely improve depression but ch,2,1,1,367
+A_generic,9,Why does sleep deprivation acutely improve depression but ch,3,0,0,500
+A_generic,10,Why does ketamine work in hours while SSRIs take weeks?,1,1,1,500
+A_generic,10,Why does ketamine work in hours while SSRIs take weeks?,2,1,1,500
+A_generic,10,Why does ketamine work in hours while SSRIs take weeks?,3,1,1,496
+B_specialized,1,Why does lithium stabilize bipolar disorder?,1,2,3,500
+B_specialized,1,Why does lithium stabilize bipolar disorder?,2,0,0,411
+B_specialized,1,Why does lithium stabilize bipolar disorder?,3,1,1,500
+B_specialized,2,Why does aspirin prevent heart attacks beyond blood thinning,1,1,1,367
+B_specialized,2,Why does aspirin prevent heart attacks beyond blood thinning,2,0,0,500
+B_specialized,2,Why does aspirin prevent heart attacks beyond blood thinning,3,1,1,500
+B_specialized,3,Why do some cancers respond to immunotherapy while genetical,1,0,0,500
+B_specialized,3,Why do some cancers respond to immunotherapy while genetical,2,0,0,500
+B_specialized,3,Why do some cancers respond to immunotherapy while genetical,3,1,1,500
+B_specialized,4,Why does exercise improve depression comparably to antidepre,1,1,1,500
+B_specialized,4,Why does exercise improve depression comparably to antidepre,2,1,1,500
+B_specialized,4,Why does exercise improve depression comparably to antidepre,3,1,1,500
+B_specialized,5,Why does fasting produce mental clarity?,1,1,1,500
+B_specialized,5,Why does fasting produce mental clarity?,2,2,2,500
+B_specialized,5,Why does fasting produce mental clarity?,3,1,1,500
+B_specialized,6,Why do some people never develop Alzheimer's despite having ,1,1,1,500
+B_specialized,6,Why do some people never develop Alzheimer's despite having ,2,1,1,500
+B_specialized,6,Why do some people never develop Alzheimer's despite having ,3,0,0,500
+B_specialized,7,Why does placebo work better for pain than for cancer?,1,1,1,500
+B_specialized,7,Why does placebo work better for pain than for cancer?,2,1,1,500
+B_specialized,7,Why does placebo work better for pain than for cancer?,3,2,2,500
+B_specialized,8,Why do psychedelics produce lasting personality change from ,1,0,0,500
+B_specialized,8,Why do psychedelics produce lasting personality change from ,2,0,0,500
+B_specialized,8,Why do psychedelics produce lasting personality change from ,3,0,0,500
+B_specialized,9,Why does sleep deprivation acutely improve depression but ch,1,0,0,500
+B_specialized,9,Why does sleep deprivation acutely improve depression but ch,2,1,1,500
+B_specialized,9,Why does sleep deprivation acutely improve depression but ch,3,1,1,500
+B_specialized,10,Why does ketamine work in hours while SSRIs take weeks?,1,1,1,357
+B_specialized,10,Why does ketamine work in hours while SSRIs take weeks?,2,1,1,500
+B_specialized,10,Why does ketamine work in hours while SSRIs take weeks?,3,1,1,500
+C_contrastive_specialized,1,Why does lithium stabilize bipolar disorder?,1,0,0,500
+C_contrastive_specialized,1,Why does lithium stabilize bipolar disorder?,2,1,1,500
+C_contrastive_specialized,1,Why does lithium stabilize bipolar disorder?,3,0,0,500
+C_contrastive_specialized,2,Why does aspirin prevent heart attacks beyond blood thinning,1,1,1,500
+C_contrastive_specialized,2,Why does aspirin prevent heart attacks beyond blood thinning,2,1,1,500
+C_contrastive_specialized,2,Why does aspirin prevent heart attacks beyond blood thinning,3,1,1,500
+C_contrastive_specialized,3,Why do some cancers respond to immunotherapy while genetical,1,1,1,500
+C_contrastive_specialized,3,Why do some cancers respond to immunotherapy while genetical,2,1,1,500
+C_contrastive_specialized,3,Why do some cancers respond to immunotherapy while genetical,3,2,2,500
+C_contrastive_specialized,4,Why does exercise improve depression comparably to antidepre,1,0,0,500
+C_contrastive_specialized,4,Why does exercise improve depression comparably to antidepre,2,2,2,500
+C_contrastive_specialized,4,Why does exercise improve depression comparably to antidepre,3,2,2,500
+C_contrastive_specialized,5,Why does fasting produce mental clarity?,1,1,1,500
+C_contrastive_specialized,5,Why does fasting produce mental clarity?,2,0,0,500
+C_contrastive_specialized,5,Why does fasting produce mental clarity?,3,2,2,500
+C_contrastive_specialized,6,Why do some people never develop Alzheimer's despite having ,1,1,1,500
+C_contrastive_specialized,6,Why do some people never develop Alzheimer's despite having ,2,2,2,500
+C_contrastive_specialized,6,Why do some people never develop Alzheimer's despite having ,3,0,0,500
+C_contrastive_specialized,7,Why does placebo work better for pain than for cancer?,1,1,1,500
+C_contrastive_specialized,7,Why does placebo work better for pain than for cancer?,2,0,0,500
+C_contrastive_specialized,7,Why does placebo work better for pain than for cancer?,3,1,1,500
+C_contrastive_specialized,8,Why do psychedelics produce lasting personality change from ,1,0,0,500
+C_contrastive_specialized,8,Why do psychedelics produce lasting personality change from ,2,0,0,500
+C_contrastive_specialized,8,Why do psychedelics produce lasting personality change from ,3,1,1,500
+C_contrastive_specialized,9,Why does sleep deprivation acutely improve depression but ch,1,2,2,500
+C_contrastive_specialized,9,Why does sleep deprivation acutely improve depression but ch,2,1,1,500
+C_contrastive_specialized,9,Why does sleep deprivation acutely improve depression but ch,3,1,1,500
+C_contrastive_specialized,10,Why does ketamine work in hours while SSRIs take weeks?,1,1,1,500
+C_contrastive_specialized,10,Why does ketamine work in hours while SSRIs take weeks?,2,1,1,500
+C_contrastive_specialized,10,Why does ketamine work in hours while SSRIs take weeks?,3,1,1,500
+D_contrastive_generic,1,Why does lithium stabilize bipolar disorder?,1,0,0,307
+D_contrastive_generic,1,Why does lithium stabilize bipolar disorder?,2,0,0,327
+D_contrastive_generic,1,Why does lithium stabilize bipolar disorder?,3,0,0,243
+D_contrastive_generic,2,Why does aspirin prevent heart attacks beyond blood thinning,1,0,0,359
+D_contrastive_generic,2,Why does aspirin prevent heart attacks beyond blood thinning,2,1,1,500
+D_contrastive_generic,2,Why does aspirin prevent heart attacks beyond blood thinning,3,1,1,500
+D_contrastive_generic,3,Why do some cancers respond to immunotherapy while genetical,1,1,1,500
+D_contrastive_generic,3,Why do some cancers respond to immunotherapy while genetical,2,0,0,500
+D_contrastive_generic,3,Why do some cancers respond to immunotherapy while genetical,3,1,1,500
+D_contrastive_generic,4,Why does exercise improve depression comparably to antidepre,1,1,1,500
+D_contrastive_generic,4,Why does exercise improve depression comparably to antidepre,2,0,0,408
+D_contrastive_generic,4,Why does exercise improve depression comparably to antidepre,3,1,1,495
+D_contrastive_generic,5,Why does fasting produce mental clarity?,1,0,0,480
+D_contrastive_generic,5,Why does fasting produce mental clarity?,2,1,1,500
+D_contrastive_generic,5,Why does fasting produce mental clarity?,3,0,0,445
+D_contrastive_generic,6,Why do some people never develop Alzheimer's despite having ,1,1,1,403
+D_contrastive_generic,6,Why do some people never develop Alzheimer's despite having ,2,0,0,437
+D_contrastive_generic,6,Why do some people never develop Alzheimer's despite having ,3,1,1,403
+D_contrastive_generic,7,Why does placebo work better for pain than for cancer?,1,0,0,500
+D_contrastive_generic,7,Why does placebo work better for pain than for cancer?,2,0,0,500
+D_contrastive_generic,7,Why does placebo work better for pain than for cancer?,3,0,0,500
+D_contrastive_generic,8,Why do psychedelics produce lasting personality change from ,1,0,0,500
+D_contrastive_generic,8,Why do psychedelics produce lasting personality change from ,2,0,0,500
+D_contrastive_generic,8,Why do psychedelics produce lasting personality change from ,3,0,0,500
+D_contrastive_generic,9,Why does sleep deprivation acutely improve depression but ch,1,0,0,500
+D_contrastive_generic,9,Why does sleep deprivation acutely improve depression but ch,2,1,1,500
+D_contrastive_generic,9,Why does sleep deprivation acutely improve depression but ch,3,0,0,439
+D_contrastive_generic,10,Why does ketamine work in hours while SSRIs take weeks?,1,1,1,500
+D_contrastive_generic,10,Why does ketamine work in hours while SSRIs take weeks?,2,1,1,500
+D_contrastive_generic,10,Why does ketamine work in hours while SSRIs take weeks?,3,0,0,500
