@@ -141,8 +141,7 @@ ratio relative to a low-P evaluator.
 ## Prompt pair matters — but so does alpha
 
 Running the mechanism with a generic system prompt at alpha=1.5 produces
-**worse** results than no mechanism at all (5.3/10 vs 8.3/10 on a
-multi-vulnerability security benchmark). The mechanism amplifies whatever
+**worse** results than no mechanism at all. The mechanism amplifies whatever
 direction the creative prompt establishes — including its blind spots.
 
 The creative/conservative prompt pair is privileged: it is the only
@@ -150,31 +149,6 @@ prompt pair that produces consistent PSS improvement with increasing
 alpha. Seven other contrast axes (temporal, minority view, failure mode,
 mechanistic depth, cross-level, adversarial) produced flat or declining
 quality when scored on PSS.
-
----
-
-## Security application: multi-pass architecture
-
-For security vulnerability detection, the optimal architecture is
-three specialized contrastive passes targeting different vulnerability
-classes, with results unioned:
-
-**Same compute budget comparison (3 passes each, union of results):**
-
-```
-Strategy                              Vulns found / 10
-──────────────────────────────────────────────────────
-A: 3x generic passes                       8.3
-B: 3x specialized prompt (no contrast)     6.7
-C: 3x contrastive same-pair               5.3  ← WORST
-D: 3x specialized contrastive passes       9.0  ← BEST
-──────────────────────────────────────────────────────
-```
-
-The contrastive mechanism uniquely finds the most subtle vulnerability
-(V10: lockless cache read requiring suppression of "double-checked
-locking looks correct" conventional reading) — missed by all other
-strategies including the specialized no-contrast approach.
 
 ---
 
@@ -291,9 +265,6 @@ python experiments/alpha_sweep.py
 
 # Literature validation against ground truth
 python experiments/literature_validation.py
-
-# Security multi-pass architecture
-python experiments/security_analysis.py
 ```
 
 Pre-computed results for all experiments are in `results/`.
@@ -315,9 +286,6 @@ print(list_modes())
 - `adversarial` — structural weakness identification (alpha=1.0)
 - `depth` — mechanistic depth over breadth (alpha=1.5)
 - `analogy` — deep cross-domain analogical mapping (alpha=2.0)
-- `security_injection` — SQL/command injection and crypto (alpha=1.0)
-- `security_authorization` — IDOR and access control (alpha=1.0)
-- `security_threading` — race conditions and TOCTOU (alpha=1.0)
 
 ---
 

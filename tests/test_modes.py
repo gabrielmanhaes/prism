@@ -44,8 +44,3 @@ def test_all_modes_have_prompts():
         assert len(mode.conservative_system) > 20, f"{name} missing conservative_system"
 
 
-def test_security_modes_exist():
-    for name in ["security_injection", "security_authorization", "security_threading"]:
-        mode = get_mode(name)
-        assert mode.task_class == "security"
-        assert mode.optimal_alpha == 1.0

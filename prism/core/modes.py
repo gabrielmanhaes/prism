@@ -27,7 +27,7 @@ class CognitiveMode:
     conservative_system: str
     optimal_alpha: float
     alpha_range: tuple
-    task_class: str  # 'synthesis' | 'forensic' | 'analytical' | 'security'
+    task_class: str  # 'synthesis' | 'forensic' | 'analytical'
 
 
 MODES = {
@@ -210,74 +210,6 @@ MODES = {
         optimal_alpha=2.0,
         alpha_range=(1.5, 2.0),
         task_class="synthesis",
-    ),
-    "security_injection": CognitiveMode(
-        name="Security — injection and crypto",
-        description=(
-            "Targets SQL injection, command injection, cryptographic "
-            "weaknesses, and predictable token generation."
-        ),
-        creative_system=(
-            "You are a security researcher. Assume this code contains "
-            "exploitable vulnerabilities. Find SQL injection via string "
-            "concatenation or interpolation, command injection via system "
-            "calls with user input, weak hash functions, predictable "
-            "tokens or salts, and hardcoded secrets. Name the exact "
-            "function, input, and outcome an attacker achieves."
-        ),
-        conservative_system=(
-            "You are a developer explaining this code to a new team "
-            "member. Explain how user input is safely handled, how "
-            "database queries are parameterized, and how tokens are "
-            "securely generated."
-        ),
-        optimal_alpha=1.0,
-        alpha_range=(0.75, 1.25),
-        task_class="security",
-    ),
-    "security_authorization": CognitiveMode(
-        name="Security — authorization and logic",
-        description=(
-            "Targets IDOR, broken access control, missing permission "
-            "checks, and business logic errors."
-        ),
-        creative_system=(
-            "Find authorization flaws, IDOR, and broken access control. "
-            "Look for missing permission checks, places where callers can "
-            "access data they shouldn't, assumptions about the caller that "
-            "an attacker can violate, and operations that should be "
-            "restricted but aren't."
-        ),
-        conservative_system=(
-            "Explain the authorization model. Who is allowed to access "
-            "what resources, and how does the code enforce those "
-            "boundaries?"
-        ),
-        optimal_alpha=1.0,
-        alpha_range=(0.75, 1.25),
-        task_class="security",
-    ),
-    "security_threading": CognitiveMode(
-        name="Security — race conditions and threading",
-        description=(
-            "Targets TOCTOU vulnerabilities, thread-safety violations, "
-            "and non-atomic operations on shared state."
-        ),
-        creative_system=(
-            "Find race conditions and thread-safety violations. Consider "
-            "concurrent execution: what happens when two threads execute "
-            "simultaneously? Look for shared state accessed without locks, "
-            "check-then-act patterns, and operations that appear atomic "
-            "but aren't."
-        ),
-        conservative_system=(
-            "Explain the synchronization design and why shared state is "
-            "safe for concurrent access. Where are locks used and what do "
-            "they protect?"
-        ),
-        optimal_alpha=1.0,
-        alpha_range=(0.75, 1.25),
-        task_class="security",
     ),
 }
 
